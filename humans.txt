@@ -3,13 +3,11 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Jan Brennenstuhl -- Developer -- @jbspeakr
 
-# THANKS
-
-    <name>
 
 # TECHNOLOGY COLOPHON
 
     CSS3, HTML5
-    Apache Server Configs, jQuery, Modernizr, Normalize.css
+    Modernizr, Normalize.css
+    JavaScript
