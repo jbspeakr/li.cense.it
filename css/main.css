@@ -101,6 +101,14 @@ body {
   padding-bottom: 20px;
 }
 
+.jumbotron h1 {
+  font-size: 53px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,

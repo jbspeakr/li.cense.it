@@ -1,16 +1,24 @@
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>License it! - Your Github License Checker</title>
   <meta name="description" content=""/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
   <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/main.css"/>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -22,21 +30,31 @@
   <div class="header clearfix">
     <nav>
       <ul class="nav nav-pills pull-right">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation" class="active"><a href="#">License Checker</a></li>
+        <!--
         <li role="presentation"><a href="#">About</a></li>
         <li role="presentation"><a href="#">Contact</a></li>
+        -->
       </ul>
     </nav>
     <h3 class="text-muted">License it!</h3>
   </div>
 
   <div class="jumbotron">
-    <h1>Jumbotron heading</h1>
-    <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus
-      commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+    <h1>License Your Repos!</h1>
+    <p class="lead">
+        Using the <a href="https://developer.github.com/v3/" title="Github.com API">Github API v3</a>
+        including the <a href="https://developer.github.com/v3/licenses/" title="Github.com License API">Licenses API</a>
+        developer preview, li.sense.it is able to check licenses of all repositories in your Github account or organisation.
+        It helps especially identifying repos without license file!</p>
+    <h2>Type your Github account or organisation handle here:</h2>
+    <p class="input-group">
+        <span class="input-group-addon" id="basic-addon1">www.github.com/</span>
+        <input type="text" class="form-control" placeholder="jbspeakr" aria-describedby="basic-addon1">
+    </p>
   </div>
 
+  <!--
   <div class="row marketing">
     <div class="col-lg-6">
       <h4>Subheading</h4>
@@ -61,14 +79,16 @@
       <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
     </div>
   </div>
+  -->
 
   <footer class="footer">
-    <p>&copy; Company 2014</p>
+    <p><a href="http://li.cense.it" title="License it! - Your Github License Checker">li.sense.it</a> was created by <a href="http://jan.brennenstuhl.me" title="Jan Brennenstuhl Portfolio">Jan Brennenstuhl</a> with lots of love &amp; Club Mate.</p>
   </footer>
 
 </div>
 <!-- /container -->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.js"></script>
 <script src="js/main.js"></script>
