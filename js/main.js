@@ -78,21 +78,7 @@ app.factory('githubApiConnector', ['$http', function ($http) {
       var user_repo_endpoint = api + '/users/' + githubHandle + '/repos' + page_parameter + page;
       var request = {
         method: 'GET',
-        url: user_repo_endpoint,
-        headers: {
-          'Authorization': 'token 5c9bd3c829fa739b7d63aedd03c6ad1c50b7c292'
-        }
-      };
-      return $http(request);
-    },
-    fetchReposForOrganisation: function (githubHandle, page) {
-      var organisation_repo_endpoint = api + '/orgs/' + githubHandle + '/repos' + page_parameter + page;
-      var request = {
-        method: 'GET',
-        url: organisation_repo_endpoint,
-        headers: {
-          'Authorization': 'token 5c9bd3c829fa739b7d63aedd03c6ad1c50b7c292'
-        }
+        url: user_repo_endpoint
       };
       return $http(request);
     },
@@ -102,8 +88,7 @@ app.factory('githubApiConnector', ['$http', function ($http) {
         method: 'GET',
         url: license_endpoint,
         headers: {
-          'Accept': 'application/vnd.github.drax-preview+json',
-          'Authorization': 'token 5c9bd3c829fa739b7d63aedd03c6ad1c50b7c292'
+          'Accept': 'application/vnd.github.drax-preview+json'
         }
       };
       return $http(request);
