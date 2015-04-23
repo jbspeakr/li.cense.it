@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="" ng-app="licker">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>License it! - Your Github License Checker</title>
-  <meta name="description" content=""/>
+  <title>License it! - The Github License Checker</title>
+  <meta name="description" content="License it! The Github license checker searches all your Github repositories for licenses and especially helps identifying repos without license files." />
 
   <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
@@ -20,7 +20,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body>
+<body ng-controller="mainCtrl">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
@@ -37,23 +37,39 @@
         -->
       </ul>
     </nav>
-    <h3 class="text-muted">License it!</h3>
+    <h3 class="text-muted">License it! - The Github License Checker</h3>
   </div>
 
   <div class="jumbotron">
     <h1>License Your Repos!</h1>
     <p class="lead">
-        Using the <a href="https://developer.github.com/v3/" title="Github.com API">Github API v3</a>
-        including the <a href="https://developer.github.com/v3/licenses/" title="Github.com License API">Licenses API</a>
-        developer preview, li.sense.it is able to check licenses of all repositories in your Github account or organisation.
-        It helps especially identifying repos without license file!</p>
+      Using the <a href="https://developer.github.com/v3/" title="Github.com API">Github API v3</a>
+      including the <a href="https://developer.github.com/v3/licenses/" title="Github.com License API">Licenses API</a>
+      developer preview, li.cense.it is able to check licenses of all repositories in your personal Github account or Github organisation.
+      It helps especially identifying repos without license file!</p>
     <h2>Type your Github account or organisation handle here:</h2>
     <p class="input-group">
-        <span class="input-group-addon" id="basic-addon1">www.github.com/</span>
-        <input type="text" class="form-control" placeholder="jbspeakr" aria-describedby="basic-addon1">
+      <span class="input-group-addon" id="basic-addon1">www.github.com/</span>
+      <input type="text" class="form-control" placeholder="jbspeakr" ng-model="githubHandle" aria-describedby="basic-addon1">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="checkLicenses();">Check!</button>
+      </span>
     </p>
   </div>
-
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Repository</th>
+          <th>License</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="repository in repositories">
+          <td><a href="{{repository.html_url}}">{{repository.name}}</a></td>
+          <td>{{repository.license.name}}</td>
+        </tr>
+      </tbody>
+    </table>
   <!--
   <div class="row marketing">
     <div class="col-lg-6">
@@ -82,7 +98,7 @@
   -->
 
   <footer class="footer">
-    <p><a href="http://li.cense.it" title="License it! - Your Github License Checker">li.sense.it</a> was created by <a href="http://jan.brennenstuhl.me" title="Jan Brennenstuhl Portfolio">Jan Brennenstuhl</a> with lots of love &amp; Club Mate.</p>
+    <p><a href="http://li.cense.it" title="License it! - The Github License Checker">li.cense.it</a> was created by <a href="http://jan.brennenstuhl.me" title="Jan Brennenstuhl Portfolio">Jan Brennenstuhl</a> with lots of love &amp; Club Mate.</p>
   </footer>
 
 </div>
