@@ -56,6 +56,11 @@
       </span>
     </p>
   </div>
+  <div class="alert alert-danger" role="alert" ng-if="errorMessage">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    {{errorMessage}}
+  </div>
   <table class="table table-striped" ng-if="repositories.length > 0">
       <thead>
         <tr>
