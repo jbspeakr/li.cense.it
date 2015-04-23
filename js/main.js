@@ -16,10 +16,10 @@ app.controller('mainCtrl', ['$scope', '$q', 'githubApiConnector', function ($sco
   $scope.repositories = [];
   $scope.fetched_repositories = [];
 
-  $scope.fetchRepos = function (apiPage, repositories) {
+  $scope.fetchRepos = function (apiPage, fetchedRepositories) {
     var defaultResultLength = 30;
     var page = apiPage || 1;
-    var repositories = repositories || [];
+    var repositories = fetchedRepositories || [];
 
     githubApiConnector.fetchReposForUser($scope.githubHandle, page).
         success(function (data) {
