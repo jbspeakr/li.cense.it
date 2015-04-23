@@ -21,7 +21,7 @@ app.controller('mainCtrl', ['$scope', '$q', 'githubApiConnector', function ($sco
     var page = apiPage || 1;
     var repositories = fetchedRepositories || [];
 
-    githubApiConnector.fetchReposForUser($scope.githubHandle, page).
+    githubApiConnector.fetchRepositories($scope.githubHandle, page).
         success(function (data) {
           if (data.length > 0) {
             repositories = repositories.concat(data);
@@ -56,7 +56,7 @@ app.controller('mainCtrl', ['$scope', '$q', 'githubApiConnector', function ($sco
   $scope.$watch('fetched_repositories', function () {
     var repositories = [];
     angular.forEach($scope.fetched_repositories, function (repository) {
-      githubApiConnector.getLicenseForRepo(repository).
+      githubApiConnector.fetchLicenses(repository).
           success(function (data) {
             repositories.push(data);
           }).
@@ -74,7 +74,7 @@ app.factory('githubApiConnector', ['$http', function ($http) {
   var page_parameter = '?page=';
 
   return {
-    fetchReposForUser: function (githubHandle, page) {
+    fetchRepositories: function (githubHandle, page) {
       var user_repo_endpoint = api + '/users/' + githubHandle + '/repos' + page_parameter + page;
       var request = {
         method: 'GET',
@@ -82,7 +82,7 @@ app.factory('githubApiConnector', ['$http', function ($http) {
       };
       return $http(request);
     },
-    getLicenseForRepo: function (repo) {
+    fetchLicenses: function (repo) {
       var license_endpoint = api + '/repos/' + repo['full_name']
       var request = {
         method: 'GET',
