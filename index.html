@@ -52,11 +52,11 @@
       <span class="input-group-addon" id="basic-addon1">www.github.com/</span>
       <input type="text" class="form-control" placeholder="jbspeakr" ng-model="githubHandle" aria-describedby="basic-addon1">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button" ng-click="checkLicenses();">Check!</button>
+        <button class="btn btn-default" type="button" ng-click="checkLicenses();"><span ng-if="isLoading == true" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Check!</button>
       </span>
     </p>
   </div>
-  <table class="table table-striped">
+  <table class="table table-striped" ng-if="repositories.length > 0">
       <thead>
         <tr>
           <th>Repository</th>
