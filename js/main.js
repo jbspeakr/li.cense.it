@@ -28,7 +28,7 @@ app.controller('mainCtrl', ['$scope', '$q', 'githubApiConnector', function ($sco
           }
           if (data.length == defaultResultLength) {
             $scope.fetchRepos(++page, repositories);
-          } else{
+          } else {
             $scope.updateFetchedRepositories(repositories);
           }
         }).
@@ -55,14 +55,20 @@ app.controller('mainCtrl', ['$scope', '$q', 'githubApiConnector', function ($sco
 
   $scope.$watch('fetched_repositories', function () {
     var repositories = [];
+    var keepGoing = true;
     angular.forEach($scope.fetched_repositories, function (repository) {
-      githubApiConnector.fetchLicenses(repository).
-          success(function (data) {
-            repositories.push(data);
-          }).
-          error(function () {
-            alert('error.')
-          });
+      if (keepGoing) {
+        githubApiConnector.fetchLicenses(repository).
+            success(function (data) {
+              repositories.push(data);
+            }).
+            error(function (data, status) {
+              if (status == 403) {
+                $scope.errorMessage = 'Not able to get complete information: Github just allows you to make up to 60 requests per hour.';
+              }
+              keepGoing = false;
+            });
+      }
     });
     $scope.updateRepositories(repositories);
   });
