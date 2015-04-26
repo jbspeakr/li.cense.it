@@ -6,8 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>License it! - The Github License Checker</title>
-  <meta name="description" content="License it! The Github license checker searches all your Github repositories for licenses and especially helps identifying repos without license files." />
+  <meta name="description"
+        content="License it! The Github license checker searches all your Github repositories for licenses and especially helps identifying repos without license files."/>
+  <meta name="twitter:card" value="summary"/>
+  <meta name="twitter:creator" value="@jbspeakr"/>
+  <meta name="twitter:description"
+        value="License it! The Github license checker searches all your Github repositories for licenses and especially helps identifying repos without license files."/>
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:description"
+        content="License it! The Github license checker searches all your Github repositories for licenses and especially helps identifying repos without license files."/>
+  <meta property="og:title" content="Jan Brennenstuhl - Software, Web, Open Data"/>
+  <meta property="og:url" content="http://jan.brennenstuhl.me"/>
+  <meta property="og:type" content="website"/>
 
+  <link rel="author" href="https://plus.google.com/115369062315673853712/posts"/>
   <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
@@ -42,17 +54,25 @@
 
   <div class="jumbotron">
     <h1>License Your Repos!</h1>
+
     <p class="lead">
       Using the <a href="https://developer.github.com/v3/" title="Github.com API">Github API v3</a>
       including the <a href="https://developer.github.com/v3/licenses/" title="Github.com License API">Licenses API</a>
-      developer preview, li.cense.it is able to check licenses of all repositories in your personal Github account or Github organisation.
+      developer preview, li.cense.it is able to check licenses of all repositories in your personal Github account or
+      Github organisation.
       It helps especially identifying repos without license file!</p>
+
     <h2>Type your Github account or organisation handle here:</h2>
+
     <p class="input-group">
       <span class="input-group-addon" id="basic-addon1">www.github.com/</span>
-      <input type="text" class="form-control" placeholder="jbspeakr" ng-model="githubHandle" aria-describedby="basic-addon1">
+      <input type="text" class="form-control" placeholder="jbspeakr" ng-model="githubHandle"
+             aria-describedby="basic-addon1">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button" ng-click="checkLicenses();"><span ng-if="isLoading == true" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Check!</button>
+        <button class="btn btn-default" type="button" ng-click="checkLicenses();"><span ng-if="isLoading == true"
+                                                                                        class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+          Check!
+        </button>
       </span>
     </p>
   </div>
@@ -62,19 +82,19 @@
     {{errorMessage}}
   </div>
   <table class="table table-striped" ng-if="repositories.length > 0">
-      <thead>
-        <tr>
-          <th>Repository</th>
-          <th>License</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="repository in repositories">
-          <td><a href="{{repository.html_url}}">{{repository.name}}</a></td>
-          <td>{{repository.license.name}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <thead>
+    <tr>
+      <th>Repository</th>
+      <th>License</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="repository in repositories">
+      <td><a href="{{repository.html_url}}">{{repository.name}}</a></td>
+      <td>{{repository.license.name}}</td>
+    </tr>
+    </tbody>
+  </table>
   <!--
   <div class="row marketing">
     <div class="col-lg-6">
@@ -103,7 +123,9 @@
   -->
 
   <footer class="footer">
-    <p><a href="http://li.cense.it" title="License it! - The Github License Checker">li.cense.it</a> was created by <a href="http://jan.brennenstuhl.me" title="Jan Brennenstuhl Portfolio">Jan Brennenstuhl</a> with lots of love &amp; Club Mate.</p>
+    <p><a href="http://li.cense.it" title="License it! - The Github License Checker">li.cense.it</a> was created by <a
+        href="http://jan.brennenstuhl.me" title="Jan Brennenstuhl Portfolio">Jan Brennenstuhl</a> with lots of love
+      &amp; Club Mate.</p>
   </footer>
 
 </div>
