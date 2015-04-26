@@ -70,10 +70,9 @@
     <p class="input-group">
       <span class="input-group-addon" id="basic-addon1">www.github.com/</span>
       <input type="text" class="form-control" placeholder="jbspeakr" ng-model="githubHandle"
-             aria-describedby="basic-addon1">
+             aria-describedby="basic-addon1" ng-enter="checkLicenses();">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button" ng-click="checkLicenses();"><span ng-if="isLoading == true"
-                                                                                        class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+        <button class="btn btn-default" type="button" ng-click="checkLicenses();">
           Check!
         </button>
       </span>
